@@ -9,7 +9,7 @@ import 'package:digit_currency_converter/digit_currency_converter.dart';
 
 void main() {
   group('DigitCurrencyConverter Tests', () {
-    const Credentials credentials = Credentials(username: "us_dig!texch@nge", password: "8vvudW1C33");
+    const Credentials credentials = Credentials(username: "test", password: "test");
     late DigitCurrencyConverter converter;
 
     setUp(() {
