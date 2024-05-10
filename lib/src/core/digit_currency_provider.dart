@@ -17,7 +17,7 @@ class DigitCurrencyProvider with ChangeNotifier {
   final Credentials credentials;
 
   /// The base currency from which conversions are calculated.
-  final Currency from;
+  Currency from;
 
   /// The target currency to convert to. Must be non-null if `useDeviceCurrency` is false.
   Currency? to;
@@ -102,7 +102,10 @@ class DigitCurrencyProvider with ChangeNotifier {
   }
 
   /// Public method to refresh the provider data.
-  Future<void> refresh() async {
+  Future<void> refresh({Currency? to, Currency? from, bool? useDeviceCurrency}) async {
+    if(to != null) this.to = to;
+    if(from != null) this.from = from;
+    if(useDeviceCurrency != null) this.useDeviceCurrency = useDeviceCurrency;
     await _initialize();
   }
 
