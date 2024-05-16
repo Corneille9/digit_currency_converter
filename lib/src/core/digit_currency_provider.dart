@@ -82,7 +82,7 @@ class DigitCurrencyProvider with ChangeNotifier {
     try {
       _deviceCurrency = (!useDeviceCurrency && to != null) ? to!.name : await DigitCurrencyConverter.deviceCurrency();
       _deviceCountry = countryCode ?? await DigitCurrencyConverter.deviceCountry();
-      
+
       _ipInfo = await getInfo();
       _rate = await _converter.rate(from: from, to: deviceCurrency.asCurrency);
       isLoading = false;
