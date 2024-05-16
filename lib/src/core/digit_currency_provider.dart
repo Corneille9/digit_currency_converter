@@ -77,28 +77,22 @@ class DigitCurrencyProvider with ChangeNotifier {
     if (isLoading) return;
     isLoading = true;
 
-    try {
-      if (useDeviceCurrency) {
-        _deviceCurrency = await DigitCurrencyConverter.deviceCurrency();
-        _deviceCountry = await DigitCurrencyConverter.deviceCountry();
-      } else {
-        if (countryCode != null) {
-          _deviceCountry = countryCode;
-        }
-        if (to != null) {
-          _deviceCurrency = to!.name;
-        }
-      }
+    notifyListeners();
 
+    try {
+      _deviceCurrency = (!useDeviceCurrency && to != null) ? to!.name : await DigitCurrencyConverter.deviceCurrency();
+      _deviceCountry = countryCode ?? await DigitCurrencyConverter.deviceCountry();
+      
       _ipInfo = await getInfo();
       _rate = await _converter.rate(from: from, to: deviceCurrency.asCurrency);
       isLoading = false;
+
+      notifyListeners();
     } catch (e, s) {
       isLoading = false;
       logger(error: e, stackTrace: s);
+      notifyListeners();
     }
-
-    notifyListeners();
   }
 
   /// Public method to refresh the provider data.
