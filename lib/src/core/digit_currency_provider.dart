@@ -73,11 +73,11 @@ class DigitCurrencyProvider with ChangeNotifier {
   String get deviceIp => _ipInfo!.query;
 
   /// Initializes provider data asynchronously and notifies listeners on update.
-  Future<void> _initialize() async {
+  Future<void> _initialize({bool load = true}) async {
     if (isLoading) return;
     isLoading = true;
 
-    notifyListeners();
+    if(load)notifyListeners();
 
     try {
       _deviceCurrency = (!useDeviceCurrency && to != null) ? to!.name.toUpperCase() : await DigitCurrencyConverter.deviceCurrency();
@@ -96,11 +96,11 @@ class DigitCurrencyProvider with ChangeNotifier {
   }
 
   /// Public method to refresh the provider data.
-  Future<void> refresh({Currency? to, Currency? from, bool? useDeviceCurrency}) async {
+  Future<void> refresh({Currency? to, Currency? from, bool? useDeviceCurrency, bool load = true}) async {
     if(to != null) this.to = to;
     if(from != null) this.from = from;
     if(useDeviceCurrency != null) this.useDeviceCurrency = useDeviceCurrency;
-    await _initialize();
+    await _initialize(load: load);
   }
 
   /// Overrides to prevent notifying listeners if the provider is disposed.
