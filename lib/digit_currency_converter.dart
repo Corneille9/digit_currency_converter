@@ -65,6 +65,8 @@ class DigitCurrencyConverter implements BaseConverter {
       var value = response.data["data"]["amountConverted"];
       return value == null ? null : withoutRounding ? num.parse(value.toString()) : num.parse(value.toStringAsFixed(2));
     } catch (e, s) {
+      debugPrint(e.toString());
+      debugPrintStack(stackTrace: s);
       logger(message: "Error while converting currency", error: e, stackTrace: s);
       return null;
     }
