@@ -27,7 +27,6 @@ enum Currency {
   btn,
   bwp,
   byn,
-  byr,
   bzd,
   cad,
   cdf,
@@ -94,7 +93,6 @@ enum Currency {
   mmk,
   mnt,
   mop,
-  mro,
   mur,
   mvr,
   mwk,
@@ -156,7 +154,6 @@ enum Currency {
   xpf,
   yer,
   zar,
-  zmk,
   zmw,
   zwl,
 }
@@ -188,7 +185,6 @@ class AllCurrency {
     "btn": "Bhutan currency",
     "bwp": "Botswanan Pula",
     "byn": "New Belarusian Ruble",
-    "byr": "Belarusian Ruble",
     "bzd": "Belize dollar",
     "cad": "Canadian dollar",
     "cdf": "Congolese franc",
@@ -259,7 +255,6 @@ class AllCurrency {
     "mmk": "Myanmar Kyat",
     "mnt": "Mongolian tugrik",
     "mop": "Macanese pataca",
-    "mro": "Mauritanian ouguiya",
     "mur": "Mauritian rupee",
     "mvr": "Maldivian rufiyaa",
     "mwk": "Malawian kwacha",
@@ -321,7 +316,6 @@ class AllCurrency {
     "xpf": "CFP franc",
     "yer": "Yemeni rial",
     "zar": "South African rand",
-    "zmk": "Zambian kwacha",
     "zmw": "Zambian Kwacha",
     "zwl": "Zimbabwean Dollar"
   };

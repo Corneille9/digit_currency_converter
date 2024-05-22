@@ -41,6 +41,22 @@ void main() {
     test('Get exchange rate from XOF to EUR', () async {
       expect(await converter.rate(from: Currency.xof, to: Currency.eur), 0.001524);
     });
+
+    // test('Check supported currencies', () async {
+    //   var base = Currency.xof;
+    //   List<Currency> unsupported = [];
+    //
+    //   for(var currency in Currency.values) {
+    //     var result = await converter.convert(from: base, to: currency, amount: 1);
+    //     if (result == null) {
+    //       unsupported.add(currency);
+    //     }
+    //   }
+    //
+    //   print("Unsupported currencies: $unsupported");
+    //
+    //   expect(unsupported.isEmpty, true);
+    // });
   });
 
 }
